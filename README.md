@@ -1,6 +1,6 @@
 Have you ever heard about Snapchat and Twitter? **Yesterday** is a combination of the best of these two apps.
 
-[![Build Status](https://travis-ci.com/rafalschmidt97/yesterday-api.svg?token=z2Ugw1HzqG3BK6LFW2LT&branch=master)](https://travis-ci.com/rafalschmidt97/yesterday-api)
+[![Build Status](https://travis-ci.com/igroup-opole/yesterday-api.svg?branch=master)](https://travis-ci.com/igroup-opole/yesterday-api)
 
 ## Contributing guidelines
 
