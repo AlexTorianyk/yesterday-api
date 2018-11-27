@@ -1,0 +1,11 @@
+language: csharp
+solution: YesterdayApi.sln
+mono: none
+dotnet: 2.1
+
+install:
+  - dotnet restore YesterdayApi
+
+script:
+  - dotnet build YesterdayApi
+  - dotnet test YesterdayApiTest
