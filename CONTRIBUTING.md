@@ -128,19 +128,25 @@ from the main (upstream) repository:
 
 ## <a name="development"></a> Development Setup
 
-You will need dotnet version 2.1+.
+You will need dotnet version 2.1+:
 
 1. After cloning the repo, run:
 
-```bash
-$ dotnet restore
-```
+   ```shell
+   dotnet restore
+   ```
+1. In order to prepare your environment run `prepare.sh` shell script:
 
-2. In order to prepare your environment run `prepare.sh` shell script:
+   ```shell
+   sh scripts/prepare.sh
+   ```
+   
+1. In order to start database run `start.sh` shell script:
 
-```bash
-$ sh scripts/prepare.sh // IN PROGRESS
-```
+    ```shell
+    sh scripts/start.sh
+    ```
+
 
 ### Commonly used scripts
 
