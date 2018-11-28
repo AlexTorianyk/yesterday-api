@@ -13,4 +13,4 @@ We really hope that good instructions for contributing will make the history of 
 
 ## License
 
-Yesterday is [No License](LICENSE).
+Yesterday is [MIT](LICENSE).
