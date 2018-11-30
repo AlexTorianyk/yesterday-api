@@ -11,6 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Utilities\AutomaticDI" />
+    <Folder Include="Utilities\Mapper" />
+    <Folder Include="Utilities\Swagger" />
+    <Folder Include="Web" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
