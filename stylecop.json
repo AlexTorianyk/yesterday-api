@@ -2,12 +2,6 @@
   "$schema":
     "https://raw.githubusercontent.com/DotNetAnalyzers/StyleCopAnalyzers/master/StyleCop.Analyzers/StyleCop.Analyzers/Settings/stylecop.schema.json",
   "settings": {
-    "layoutRules": {
-      "newlineAtEndOfFile": "omit"
-    },
-    "orderingRules": {
-      "blankLinesBetweenUsingGroups": "omit"
-    },
     "indentation": {
       "tabSize": 2,
       "indentationSize": 2
