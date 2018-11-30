@@ -11,6 +11,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Core\Users\Followers" />
+    <Folder Include="Core\Users\Posts\Comments" />
+    <Folder Include="Core\Users\Posts\Reactions\Types" />
+    <Folder Include="Core\Users\Profile" />
+    <Folder Include="Utilities\AutomaticDI" />
+    <Folder Include="Utilities\Cors" />
+    <Folder Include="Utilities\Data" />
+    <Folder Include="Utilities\Mapper" />
+    <Folder Include="Utilities\Security" />
+    <Folder Include="Utilities\Swagger" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
