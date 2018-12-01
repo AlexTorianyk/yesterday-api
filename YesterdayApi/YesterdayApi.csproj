@@ -12,13 +12,14 @@
 
   <ItemGroup>
     <Folder Include="Utilities\AutomaticDI" />
-    <Folder Include="Utilities\Mapper" />
     <Folder Include="Utilities\Swagger" />
     <Folder Include="Web" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Microsoft.AnalyzerPowerPack" Version="1.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.6.2" />
