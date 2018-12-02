@@ -1,10 +1,10 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using YesterdayApi.Utilities.Mapper;
+using YesterdayApi.Utilities.Swagger;
 
 namespace YesterdayApi
 {
@@ -22,6 +22,7 @@ namespace YesterdayApi
     {
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
       services.AddMapper();
+      services.AddSwagger();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -30,6 +31,7 @@ namespace YesterdayApi
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
+        app.UseCustomSwagger();
       }
       else
       {
