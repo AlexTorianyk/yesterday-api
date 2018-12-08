@@ -7,10 +7,12 @@ namespace YesterdayApi.Web.Cors
   {
     public static void AddCorsPolicy(this IServiceCollection services)
     {
+      services.AddCors();
     }
 
     public static void UseCorsPolicy(this IApplicationBuilder app)
     {
+      app.UseCors(builder => builder.WithOrigins("http://yesterday.com"));
     }
   }
 }

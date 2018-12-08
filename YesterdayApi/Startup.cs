@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using YesterdayApi.Infrastructure.Data;
 using YesterdayApi.Utilities.Mapper;
 using YesterdayApi.Utilities.Swagger;
+using YesterdayApi.Web.Cors;
 
 namespace YesterdayApi
 {
@@ -25,6 +26,7 @@ namespace YesterdayApi
       services.AddMapper();
       services.AddSwagger();
       services.AddDbContext(Configuration);
+      services.AddCorsPolicy();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +42,7 @@ namespace YesterdayApi
         app.UseHsts();
       }
 
+      app.UseCorsPolicy();
       app.UseHttpsRedirection();
       app.UseMvc();
     }
