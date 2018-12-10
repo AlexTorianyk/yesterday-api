@@ -12,7 +12,7 @@ namespace YesterdayApi.Web.Cors
 
     public static void UseCorsPolicy(this IApplicationBuilder app)
     {
-      app.UseCors(builder => builder.WithOrigins("http://yesterday.com"));
+      app.UseCors(builder => builder.AllowAnyOrigin());
     }
   }
 }
