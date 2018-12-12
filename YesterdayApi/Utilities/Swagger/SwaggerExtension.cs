@@ -4,22 +4,22 @@ using Swashbuckle.AspNetCore.Swagger;
 
 namespace YesterdayApi.Utilities.Swagger
 {
-  public static class SwaggerExtension
-  {
-    public static void AddSwagger(this IServiceCollection services)
+    public static class SwaggerExtension
     {
-      services.AddSwaggerGen(configuration =>
-        configuration.SwaggerDoc("v1", new Info
+        public static void AddSwagger(this IServiceCollection services)
         {
-          Title = "API",
-          Description = "Yesterday Web API",
-        }));
-    }
+            services.AddSwaggerGen(configuration =>
+              configuration.SwaggerDoc("v1", new Info
+              {
+                Title = "API",
+                Description = "Yesterday Web API",
+              }));
+        }
 
-    public static void UseCustomSwagger(this IApplicationBuilder app)
-    {
-      app.UseSwagger();
-      app.UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/v1/swagger.json", "API"));
+        public static void UseCustomSwagger(this IApplicationBuilder app)
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/v1/swagger.json", "API"));
+        }
     }
-  }
 }
