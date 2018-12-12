@@ -3,8 +3,8 @@
     "https://raw.githubusercontent.com/DotNetAnalyzers/StyleCopAnalyzers/master/StyleCop.Analyzers/StyleCop.Analyzers/Settings/stylecop.schema.json",
   "settings": {
     "indentation": {
-      "tabSize": 2,
-      "indentationSize": 2
+      "tabSize": 4,
+      "indentationSize": 4
     }
   }
 }
