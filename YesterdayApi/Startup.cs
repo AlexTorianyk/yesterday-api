@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using YesterdayApi.Infrastructure.Data;
+using YesterdayApi.Utilities.AutomaticDI;
 using YesterdayApi.Utilities.Mapper;
 using YesterdayApi.Utilities.Swagger;
 using YesterdayApi.Web.Cors;
@@ -27,6 +28,8 @@ namespace YesterdayApi
             services.AddSwagger();
             services.AddDbContext(Configuration);
             services.AddCorsPolicy();
+
+            services.ConfigureDependencies();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
