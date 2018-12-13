@@ -1,4 +1,4 @@
-namespace YesterdayApi.Core.Users.Profiles.Followers.Web
+namespace YesterdayApi.Core.Users.Followers.Web
 {
   public class FollowerResponse
   {

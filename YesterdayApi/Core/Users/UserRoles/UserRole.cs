@@ -1,4 +1,4 @@
-namespace YesterdayApi.Core.Users.Roles
+namespace YesterdayApi.Core.Users.UserRoles
 {
   public class UserRole
   {

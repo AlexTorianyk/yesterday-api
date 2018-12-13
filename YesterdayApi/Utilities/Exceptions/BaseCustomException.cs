@@ -3,7 +3,7 @@ using System;
 namespace YesterdayApi.Utilities.Exceptions
 {
     [Serializable]
-    public class BaseCustomException : System.Exception
+    public class BaseCustomException : Exception
     {
         public int Code { get; }
         public string Description { get; }

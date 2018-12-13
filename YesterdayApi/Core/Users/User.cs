@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using YesterdayApi.Core.Users.Posts.Comments;
 using YesterdayApi.Core.Users.Posts.Reactions;
 using YesterdayApi.Core.Users.Profiles;
-using YesterdayApi.Core.Users.Roles;
+using YesterdayApi.Core.Users.UserRoles;
 
 namespace YesterdayApi.Core.Users
 {
