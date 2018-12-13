@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using YesterdayApi.Infrastructure.Data;
 using YesterdayApi.Utilities.AutomaticDI;
+using YesterdayApi.Utilities.Exceptions;
 using YesterdayApi.Utilities.Mapper;
 using YesterdayApi.Utilities.Swagger;
 using YesterdayApi.Web.Cors;
@@ -45,6 +47,7 @@ namespace YesterdayApi
                 app.UseHsts();
             }
 
+            app.UseMiddleware<ExceptionHandlingMiddleware>();
             app.UseCorsPolicy();
             app.UseHttpsRedirection();
             app.UseMvc();
