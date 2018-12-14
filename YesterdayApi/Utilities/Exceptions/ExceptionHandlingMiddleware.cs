@@ -17,11 +17,11 @@ namespace YesterdayApi.Utilities.Exceptions
         {
             try
             {
-                await _next(context);
+                await _next(context).ConfigureAwait(false);
             }
             catch (System.Exception ex)
             {
-                await HandleExceptionAsync(context, ex);
+                await HandleExceptionAsync(context, ex).ConfigureAwait(false);
             }
         }
 
@@ -32,7 +32,7 @@ namespace YesterdayApi.Utilities.Exceptions
             var message = "Unexpected error";
             var description = "Unexpected error";
 
-            if (exception is BaseCustomException customException)
+            if (exception is BaseHttpException customException)
             {
                 message = customException.Message;
                 description = customException.Description;
