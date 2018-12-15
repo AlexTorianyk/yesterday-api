@@ -57,7 +57,6 @@ namespace YesterdayApiTest
             // Assert
             Assert.Equal(expectedResponseBody, objResponse);
             Assert.Equal(expectedStatusCode, (int)HttpStatusCode.InternalServerError);
-
         }
     }
 }

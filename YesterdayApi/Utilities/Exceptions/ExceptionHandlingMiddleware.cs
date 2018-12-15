@@ -44,7 +44,7 @@ namespace YesterdayApi.Utilities.Exceptions
             return response.WriteAsync(JsonConvert.SerializeObject(new CustomErrorResponse
             {
                 Message = message,
-                Description = description
+                Description = description,
             }));
         }
     }
