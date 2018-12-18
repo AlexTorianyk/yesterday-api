@@ -1,5 +1,3 @@
-using YesterdayApi.Core.Users.Roles;
-
 namespace YesterdayApi.Core.Users.UserRoles.Roles
 {
   public class Role
