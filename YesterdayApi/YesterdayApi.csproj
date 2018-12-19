@@ -3,7 +3,7 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
 
     <CodeAnalysisRuleSet>..\stylecop.ruleset</CodeAnalysisRuleSet>
-    <RunCodeAnalysis>True</RunCodeAnalysis>
+    <RunCodeAnalysis>False</RunCodeAnalysis>
   </PropertyGroup>
 
   <ItemGroup>
