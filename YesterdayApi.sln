@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YesterdayApi", "YesterdayApi\YesterdayApi.csproj", "{69F6DBBB-315F-404D-AC61-CF1743D2A099}"
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YesterdayApi", "YesterdayApi\YesterdayApi.csproj", "{69F6DBBB-315F-404D-AC61-CF1743D2A099}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YesterdayApiTest", "YesterdayApiTest\YesterdayApiTest.csproj", "{4AF7CBE4-2969-4762-A738-94429B68D384}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YesterdayApiTest", "YesterdayApiTest\YesterdayApiTest.csproj", "{4AF7CBE4-2969-4762-A738-94429B68D384}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YesterdayApi.UserIdentity.Data", "YesterdayApi.UserIdentity.Data\YesterdayApi.UserIdentity.Data.csproj", "{6D9A2C3F-95E8-4217-9DD7-1873276F55ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,5 +23,15 @@ Global
 		{4AF7CBE4-2969-4762-A738-94429B68D384}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AF7CBE4-2969-4762-A738-94429B68D384}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AF7CBE4-2969-4762-A738-94429B68D384}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D9A2C3F-95E8-4217-9DD7-1873276F55ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D9A2C3F-95E8-4217-9DD7-1873276F55ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D9A2C3F-95E8-4217-9DD7-1873276F55ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D9A2C3F-95E8-4217-9DD7-1873276F55ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AEAE6C33-7C67-4D11-8E9D-6155BEB37903}
 	EndGlobalSection
 EndGlobal
