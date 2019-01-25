@@ -7,10 +7,6 @@ namespace YesterdayApi.UserIdentity.Data.Infrastructure.Database
 {
     public class UserDbContext : IdentityDbContext<AspIdentityUser, IdentityRole<int>, int>
     {
-        public UserDbContext()
-        {
-        }
-
         public UserDbContext(DbContextOptions options)
             : base(options)
         {
