@@ -1,7 +1,9 @@
 language: csharp
 solution: YesterdayApi.sln
 mono: none
-dotnet: 2.1
+sudo: required
+dist: xenial
+dotnet: 2.2
 
 install:
   - dotnet restore YesterdayApi

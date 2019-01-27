@@ -13,7 +13,6 @@ namespace YesterdayApi.Core.Users
 
     public Profile Profile { get; set; }
 
-
     public ICollection<Reaction> Reactions { get; set; }
 
     public ICollection<Comment> Comments { get; set; }
