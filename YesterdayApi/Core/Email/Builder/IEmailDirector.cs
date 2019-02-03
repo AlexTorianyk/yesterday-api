@@ -6,6 +6,6 @@ namespace YesterdayApi.Core.Email.Builder
 {
     public interface IEmailDirector : IScoped
     {
-        MimeMessage PrepareEmail(IUserCredentials userCredentials, Type type);
+        MimeMessage PrepareEmail(IEmailReceiver emailReceiver, Type type);
     }
 }

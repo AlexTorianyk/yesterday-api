@@ -8,7 +8,7 @@ namespace YesterdayApi.Core.Email.Builder
 {
     public class EmailDirector : IEmailDirector
     {
-        private EmailBuilder _emailBuilder;
+        private EmailBuilderBase _emailBuilder;
         private readonly IRazorViewToStringRenderer _razorViewToStringRenderer;
 
         public EmailDirector(IRazorViewToStringRenderer razorViewToStringRenderer)
@@ -16,11 +16,13 @@ namespace YesterdayApi.Core.Email.Builder
             _razorViewToStringRenderer = razorViewToStringRenderer;
         }
 
-        public MimeMessage PrepareEmail(IUserCredentials userCredentials, Type type)
+        public MimeMessage PrepareEmail(IEmailReceiver emailReceiver, Type type)
         {
             PrepareBuilder(type);
+            _emailBuilder.PrepareTemplate();
             _emailBuilder.ResetEmail();
-            _emailBuilder.AppendUserDetails(userCredentials);
+            _emailBuilder.AppendUserDetails(emailReceiver);
+            _emailBuilder.AddSubject();
             _emailBuilder.PrepareBody();
             return _emailBuilder.BuildEmail();
         }

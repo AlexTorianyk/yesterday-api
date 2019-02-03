@@ -5,6 +5,6 @@ namespace YesterdayApi.Core.Email
 {
     public interface IEmailService : IScoped
     {
-        void SendEmail(IUserCredentials credentials, Type type);
+        void SendEmail(IEmailReceiver details, Type type);
     }
 }

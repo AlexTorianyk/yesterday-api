@@ -14,11 +14,12 @@ namespace YesterdayApi.Core.Email
             _emailDirector = emailDirector;
         }
 
-        public async void SendEmail(IUserCredentials credentials, Type type)
+        public async void SendEmail(IEmailReceiver details, Type type)
         {
-            var email = _emailDirector.PrepareEmail(credentials, type);
+            var email = _emailDirector.PrepareEmail(details, type);
             using (var client = new SmtpClient())
             {
+                // Accept all SSL certificates
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;
                 client.Connect("hostname", 465, true);
                 client.Authenticate("login", "password");

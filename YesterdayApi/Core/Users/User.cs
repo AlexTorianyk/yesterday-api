@@ -8,7 +8,7 @@ using YesterdayApi.UserIdentity.Data.Core.Users;
 
 namespace YesterdayApi.Core.Users
 {
-  public class User : AspIdentityUser , IUserCredentials
+  public class User : AspIdentityUser , IEmailReceiver
   {
     public DateTime BirthDate { get; set; }
 

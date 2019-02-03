@@ -5,20 +5,21 @@ using YesterdayApi.Core.Email.Builder.Renderer;
 
 namespace YesterdayApi.Core.Email.Builder.Builders
 {
-    public class RegistrationConfirmationEmailBuilder : EmailBuilder
+    public class RegistrationConfirmationEmailBuilder : EmailBuilderBase
     {
-        private readonly IRazorViewToStringRenderer _razorViewToStringRenderer;
-        private readonly string _subject;
+        private string _subject;
         private PageModel _emailTemplate;
         private MimeMessage _email;
-        private IUserCredentials _userCredentials;
+        private IEmailReceiver _emailReceiver;
 
         public RegistrationConfirmationEmailBuilder(
             IRazorViewToStringRenderer razorViewToStringRenderer) : base(razorViewToStringRenderer)
         {
+        }
+
+        public override void PrepareTemplate()
+        {
             _emailTemplate = new RegistrationConfirmation();
-            _razorViewToStringRenderer = razorViewToStringRenderer;
-            _subject = "Confirm your registration on Yesterday";
         }
 
         public override void ResetEmail()
@@ -26,15 +27,20 @@ namespace YesterdayApi.Core.Email.Builder.Builders
             _email = new MimeMessage();
         }
 
-        public override void AppendUserDetails(IUserCredentials credentials)
+        public override void AppendUserDetails(IEmailReceiver details)
         {
-            _userCredentials = credentials;
-            _email.To.Add(new MailboxAddress(_userCredentials.Email));
+            _emailReceiver = details;
+            _email.To.Add(new MailboxAddress(_emailReceiver.Email));
+        }
+
+        public override void AddSubject()
+        {
+            _subject = "Confirm your registration on Yesterday";
         }
 
         public override async void PrepareBody()
         {
-            _emailTemplate = new RegistrationConfirmation(_userCredentials.UserName);
+            _emailTemplate = new RegistrationConfirmation(_emailReceiver.UserName);
             _email.Body =
                 new TextPart(await _razorViewToStringRenderer.RenderViewToStringAsync(
                     "/Views/RegistrationConfirmation.cshtml",

@@ -38,12 +38,15 @@ namespace YesterdayApi.Core.Email.Builder.Renderer
 
             using (var output = new StringWriter())
             {
+                var metadataProvider = new EmptyModelMetadataProvider();
+                var modelState = new ModelStateDictionary();
+
                 var viewContext = new ViewContext(
                     actionContext,
                     view,
                     new ViewDataDictionary<TModel>(
-                        metadataProvider: new EmptyModelMetadataProvider(),
-                        modelState: new ModelStateDictionary())
+                        metadataProvider,
+                        modelState)
                     {
                         Model = model,
                     },
@@ -76,7 +79,7 @@ namespace YesterdayApi.Core.Email.Builder.Renderer
             var searchedLocations = getViewResult.SearchedLocations.Concat(findViewResult.SearchedLocations);
             var errorMessage = string.Join(
                 Environment.NewLine,
-                new[] { $"Unable to find view '{viewName}'. The following locations were searched:" }.Concat(
+                new[] {$"Unable to find view '{viewName}'. The following locations were searched:"}.Concat(
                     searchedLocations));
 
             throw new InvalidOperationException(errorMessage);
