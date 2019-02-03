@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using YesterdayApi.Core.Email;
 using YesterdayApi.Core.Users.Posts.Comments;
 using YesterdayApi.Core.Users.Posts.Reactions;
 using YesterdayApi.Core.Users.Profiles;
@@ -7,7 +8,7 @@ using YesterdayApi.UserIdentity.Data.Core.Users;
 
 namespace YesterdayApi.Core.Users
 {
-  public class User : AspIdentityUser
+  public class User : AspIdentityUser , IUserCredentials
   {
     public DateTime BirthDate { get; set; }
 
