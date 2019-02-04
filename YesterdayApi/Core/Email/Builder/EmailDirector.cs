@@ -1,5 +1,4 @@
 using MimeKit;
-using RazorHtmlEmails.RazorClassLib.Views;
 using YesterdayApi.Core.Email.Builder.Builders;
 using YesterdayApi.Core.Email.Builder.Renderer;
 using YesterdayApi.Core.Email.Builder.Types;
@@ -19,12 +18,12 @@ namespace YesterdayApi.Core.Email.Builder
         public MimeMessage PrepareEmail(IEmailReceiver emailReceiver, Type type)
         {
             PrepareBuilder(type);
-            _emailBuilder.PrepareTemplate();
             _emailBuilder.ResetEmail();
             _emailBuilder.AppendUserDetails(emailReceiver);
             _emailBuilder.AddSubject();
             _emailBuilder.PrepareBody();
-            return _emailBuilder.BuildEmail();
+            var preparedEmail = _emailBuilder.Build();
+            return preparedEmail;
         }
 
         private void PrepareBuilder(Type type)

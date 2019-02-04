@@ -13,11 +13,10 @@ namespace YesterdayApi.Core.Email.Builder.Builders
             _razorViewToStringRenderer = razorViewToStringRenderer;
         }
 
-        public abstract void PrepareTemplate();
         public abstract void ResetEmail();
         public abstract void AppendUserDetails(IEmailReceiver details);
         public abstract void PrepareBody();
         public abstract void AddSubject();
-        public abstract MimeMessage BuildEmail();
+        public abstract MimeMessage Build();
     }
 }

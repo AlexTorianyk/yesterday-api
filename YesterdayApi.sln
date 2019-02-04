@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YesterdayApiTest", "Yesterd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YesterdayApi.UserIdentity.Data", "YesterdayApi.UserIdentity.Data\YesterdayApi.UserIdentity.Data.csproj", "{6D9A2C3F-95E8-4217-9DD7-1873276F55ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorHtmlEmails.RazorClassLib", "RazorHtmlEmails.RazorClassLib\RazorHtmlEmails.RazorClassLib.csproj", "{1B0F39D1-0BDA-40E1-BB3B-929D98D2C85E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YesterdayApi.EmailViews", "YesterdayApi.EmailViews\YesterdayApi.EmailViews.csproj", "{1B0F39D1-0BDA-40E1-BB3B-929D98D2C85E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -17,11 +17,6 @@ namespace YesterdayApi.Core.Email.Builder.Builders
         {
         }
 
-        public override void PrepareTemplate()
-        {
-            _emailTemplate = new RegistrationConfirmation();
-        }
-
         public override void ResetEmail()
         {
             _email = new MimeMessage();
@@ -35,7 +30,7 @@ namespace YesterdayApi.Core.Email.Builder.Builders
 
         public override void AddSubject()
         {
-            _subject = "Confirm your registration on Yesterday";
+            _email.Subject = "Confirm your registration on Yesterday";
         }
 
         public override async void PrepareBody()
@@ -47,7 +42,7 @@ namespace YesterdayApi.Core.Email.Builder.Builders
                     _emailTemplate).ConfigureAwait(false));
         }
 
-        public override MimeMessage BuildEmail()
+        public override MimeMessage Build()
         {
             _email.From.Add(new MailboxAddress("yesterday@yesterday.com"));
             return _email;

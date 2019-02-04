@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RazorHtmlEmails.RazorClassLib\RazorHtmlEmails.RazorClassLib.csproj" />
+    <ProjectReference Include="..\YesterdayApi.EmailViews\YesterdayApi.EmailViews.csproj" />
     <ProjectReference Include="..\YesterdayApi.UserIdentity.Data\YesterdayApi.UserIdentity.Data.csproj" />
   </ItemGroup>
 </Project>

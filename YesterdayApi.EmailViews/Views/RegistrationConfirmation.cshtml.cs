@@ -4,7 +4,7 @@ namespace RazorHtmlEmails.RazorClassLib.Views
 {
     public class RegistrationConfirmation : PageModel
     {
-        private string UserName;
+        public string UserName { get; set; }
 
         public RegistrationConfirmation(string userName)
         {
