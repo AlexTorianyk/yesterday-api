@@ -11,6 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YesterdayApi.UserIdentity.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{BA0F2E02-8474-49B6-9D91-28BE74F6F0E7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{E59B3F2D-D5F4-4263-9A2C-1C8C36F6803E}"
+	ProjectSection(SolutionItems) = preProject
+		commonsettings.json = commonsettings.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
