@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
 
@@ -28,6 +28,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IdentityServer\IdentityServer.csproj" />
-    <ProjectReference Include="..\YesterdayApi.UserIdentity.Data\YesterdayApi.UserIdentity.Data.csproj" />
   </ItemGroup>
 </Project>
