@@ -10,12 +10,5 @@ namespace IdentityServer.Core.Users
         {
             RefreshToken = refreshToken;
         }
-
-        public void Update(UserIdentity user)
-        {
-            UserName = user.UserName;
-            Email = user.Email;
-            PhoneNumber = user.PhoneNumber;
-        }
     }
 }
