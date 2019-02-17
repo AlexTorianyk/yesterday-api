@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YesterdayApiTest", "Yesterd
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{BA0F2E02-8474-49B6-9D91-28BE74F6F0E7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{E59B3F2D-D5F4-4263-9A2C-1C8C36F6803E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{BC70232B-AA70-41F8-A81E-52E1ADFB77E2}"
 	ProjectSection(SolutionItems) = preProject
-		commonsettings.json = commonsettings.json
+		Common\commonsettings.json = Common\commonsettings.json
 	EndProjectSection
 EndProject
 Global
