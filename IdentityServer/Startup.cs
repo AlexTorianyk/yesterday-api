@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IdentityServer.Core;
 using IdentityServer.Core.Users;
 using IdentityServer.Infrastructure.Data;
 using IdentityServer.Utilities.Extensions;
@@ -24,6 +25,15 @@ namespace IdentityServer
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddIdentityServer()
+                .AddDeveloperSigningCredential()
+                .AddInMemoryIdentityResources(Config.GetIdentityResources())
+                .AddInMemoryApiResources(Config.GetApiResources())
+                .AddInMemoryClients(Config.GetClients(Configuration))
+                .AddProfileService<ProfileService>()
+                .AddResourceOwnerValidator<ResourceOwnerPasswordValidator>()
+                .AddPersistedGrantStore<PersistentGrantStore>();
+
             services.AddPersistentGrantDbContext(Configuration);
             services.AddAspIdentityDatabase(Configuration);
             services.AddTransient<IUserIdentityService, UserIdentityService>();
@@ -36,10 +46,7 @@ namespace IdentityServer
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+            app.UseIdentityServer();
         }
     }
 }
