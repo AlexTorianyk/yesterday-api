@@ -5,7 +5,7 @@ using YesterdayApi.UserIdentity.Data.Core.Users;
 
 namespace YesterdayApi.UserIdentity.Data.Infrastructure.Database
 {
-    public class UserDbContext : IdentityDbContext<AspIdentityUser, IdentityRole<int>, int>
+    public class UserDbContext : IdentityDbContext<Core.Users.UserIdentity, IdentityRole<int>, int>
     {
         public UserDbContext(DbContextOptions options)
             : base(options)
@@ -14,7 +14,7 @@ namespace YesterdayApi.UserIdentity.Data.Infrastructure.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var user = modelBuilder.Entity<AspIdentityUser>()
+            var user = modelBuilder.Entity<Core.Users.UserIdentity>()
                 .ToTable("User");
             user.HasKey(u => u.Id);
 

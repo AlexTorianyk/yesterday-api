@@ -7,7 +7,7 @@ using YesterdayApi.UserIdentity.Data.Core.Users;
 
 namespace YesterdayApi.Core.Users
 {
-  public class User : AspIdentityUser
+  public class User : UserIdentity.Data.Core.Users.UserIdentity
   {
     public DateTime BirthDate { get; set; }
 

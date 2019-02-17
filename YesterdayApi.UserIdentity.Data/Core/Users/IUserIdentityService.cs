@@ -2,8 +2,8 @@ using System.Threading.Tasks;
 
 namespace YesterdayApi.UserIdentity.Data.Core.Users
 {
-    public interface IAspIdentityUserService
+    public interface IUserIdentityService
     {
-        Task<AspIdentityUser> GetById(int id);
+        Task<UserIdentity> GetById(int id);
     }
 }

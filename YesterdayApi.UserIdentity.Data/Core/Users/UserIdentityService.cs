@@ -4,15 +4,15 @@ using YesterdayApi.UserIdentity.Data.Infrastructure.Database;
 
 namespace YesterdayApi.UserIdentity.Data.Core.Users
 {
-    public class AspIdentityUserService : IAspIdentityUserService
+    public class UserIdentityService : IUserIdentityService
     {
         private readonly UserDbContext _context;
 
-        public AspIdentityUserService(UserDbContext context)
+        public UserIdentityService(UserDbContext context)
         {
             _context = context;
         }
-        public async Task<AspIdentityUser> GetById(int id)
+        public async Task<UserIdentity> GetById(int id)
         {
             if (await UserExists(id))
                 return await _context.Users.FindAsync(id).ConfigureAwait(false);

@@ -13,10 +13,10 @@ namespace YesterdayApi.UserIdentity.Data.Infrastructure.Database
             services.AddDbContext<UserDbContext>(opt =>
                 opt.UseSqlServer(configuration.GetConnectionString("yesterday")));
 
-            services.AddIdentityCore<AspIdentityUser>(options => { });
-            new IdentityBuilder(typeof(AspIdentityUser), typeof(IdentityRole<int>), services)
+            services.AddIdentityCore<Core.Users.UserIdentity>(options => { });
+            new IdentityBuilder(typeof(Core.Users.UserIdentity), typeof(IdentityRole<int>), services)
                 .AddRoleManager<RoleManager<IdentityRole<int>>>()
-                .AddSignInManager<SignInManager<AspIdentityUser>>()
+                .AddSignInManager<SignInManager<Core.Users.UserIdentity>>()
                 .AddEntityFrameworkStores<UserDbContext>();
 
             services.Configure<IdentityOptions>(options =>
