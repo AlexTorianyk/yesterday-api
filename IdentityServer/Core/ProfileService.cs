@@ -21,8 +21,7 @@ namespace IdentityServer.Core
 
         public async Task GetProfileDataAsync(ProfileDataRequestContext context)
         {
-            var sub = context.Subject.GetSubjectId();
-            var subNumber = Convert.ToInt32(sub);
+            var subNumber = Convert.ToInt32(context.Subject.GetSubjectId());
 
             var user = await _userIdentityService.GetById(subNumber);
 

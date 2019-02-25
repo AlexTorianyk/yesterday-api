@@ -12,7 +12,7 @@ namespace IdentityServer.Infrastructure.Data
             services.AddDbContext<UserIdentityDbContext>(opt =>
                 opt.UseSqlServer(configuration.GetConnectionString("yesterday")));
 
-            services.AddIdentityCore<Core.Users.UserIdentity>(options => { });
+            services.AddIdentityCore<Core.Users.UserIdentity>();
             new IdentityBuilder(typeof(Core.Users.UserIdentity), typeof(IdentityRole<int>), services)
                 .AddRoleManager<RoleManager<IdentityRole<int>>>()
                 .AddSignInManager<SignInManager<Core.Users.UserIdentity>>()

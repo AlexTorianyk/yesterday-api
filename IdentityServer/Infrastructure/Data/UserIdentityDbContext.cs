@@ -1,10 +1,11 @@
+using IdentityServer.Core.Users;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace IdentityServer.Infrastructure.Data
 {
-    public class UserIdentityDbContext : IdentityDbContext<Core.Users.UserIdentity, IdentityRole<int>, int>
+    public class UserIdentityDbContext : IdentityDbContext<UserIdentity, IdentityRole<int>, int>
     {
         public UserIdentityDbContext(DbContextOptions options)
             : base(options)
@@ -13,9 +14,8 @@ namespace IdentityServer.Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var user = modelBuilder.Entity<Core.Users.UserIdentity>()
+            var user = modelBuilder.Entity<UserIdentity>()
                 .ToTable("User");
-            user.HasKey(u => u.Id);
 
             user.HasIndex(u => u.NormalizedUserName).HasName("UserNameIndex").IsUnique();
             user.HasIndex(u => u.NormalizedEmail).HasName("EmailIndex");
@@ -24,11 +24,11 @@ namespace IdentityServer.Infrastructure.Data
             user.Property(u => u.ConcurrencyStamp).IsConcurrencyToken();
 
             // Limit the size of columns to use efficient database types
-            user.Property(u => u.UserName).HasMaxLength(256);
-            user.Property(u => u.NormalizedUserName).HasMaxLength(256);
+            user.Property(u => u.UserName).HasMaxLength(25);
+            user.Property(u => u.NormalizedUserName).HasMaxLength(25);
             user.Property(u => u.Email).HasMaxLength(256);
             user.Property(u => u.NormalizedEmail).HasMaxLength(256);
-            user.Property(u => u.RefreshToken).HasMaxLength(256);
+            user.Property(u => u.RefreshToken).HasMaxLength(64);
             user.HasMany<IdentityUserRole<int>>().WithOne().HasForeignKey(ur => ur.UserId).IsRequired();
 
             var role = modelBuilder.Entity<IdentityRole<int>>()

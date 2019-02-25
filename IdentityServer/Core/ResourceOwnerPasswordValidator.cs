@@ -22,8 +22,7 @@ namespace IdentityServer.Core
         {
             try
             {
-                var userName = context.UserName;
-                var user = await _userIdentityService.FindByNameAsync(userName);
+                var user = await _userIdentityService.FindByNameAsync(context.UserName);
                 if (user != null)
                 {
                     if (await _userIdentityService.CheckPasswordAsync(user, context.Password))
@@ -36,7 +35,7 @@ namespace IdentityServer.Core
                         return;
                     }
 
-                    context.Result = new GrantValidationResult(TokenRequestErrors.InvalidGrant, "Incorrect password");
+                    context.Result = new GrantValidationResult(TokenRequestErrors.InvalidGrant, "Invalid username or password");
                     return;
                 }
                 context.Result = new GrantValidationResult(TokenRequestErrors.InvalidGrant, "User does not exist.");
