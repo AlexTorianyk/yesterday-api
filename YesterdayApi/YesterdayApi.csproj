@@ -18,6 +18,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="8.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="MailKit" Version="2.1.2" />
     <PackageReference Include="Microsoft.AnalyzerPowerPack" Version="1.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.6.2" />
@@ -28,5 +29,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IdentityServer\IdentityServer.csproj" />
+    <ProjectReference Include="..\YesterdayApi.EmailViews\YesterdayApi.EmailViews.csproj" />
   </ItemGroup>
 </Project>
