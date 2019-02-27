@@ -1,22 +1,21 @@
+using IdentityServer.Core.Users;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using YesterdayApi.UserIdentity.Data.Core.Users;
 
-namespace YesterdayApi.UserIdentity.Data.Infrastructure.Database
+namespace IdentityServer.Infrastructure.Data
 {
-    public class UserDbContext : IdentityDbContext<Core.Users.UserIdentity, IdentityRole<int>, int>
+    public class UserIdentityDbContext : IdentityDbContext<UserIdentity, IdentityRole<int>, int>
     {
-        public UserDbContext(DbContextOptions options)
+        public UserIdentityDbContext(DbContextOptions options)
             : base(options)
         {
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var user = modelBuilder.Entity<Core.Users.UserIdentity>()
+            var user = modelBuilder.Entity<UserIdentity>()
                 .ToTable("User");
-            user.HasKey(u => u.Id);
 
             user.HasIndex(u => u.NormalizedUserName).HasName("UserNameIndex").IsUnique();
             user.HasIndex(u => u.NormalizedEmail).HasName("EmailIndex");
@@ -25,11 +24,11 @@ namespace YesterdayApi.UserIdentity.Data.Infrastructure.Database
             user.Property(u => u.ConcurrencyStamp).IsConcurrencyToken();
 
             // Limit the size of columns to use efficient database types
-            user.Property(u => u.UserName).HasMaxLength(256);
-            user.Property(u => u.NormalizedUserName).HasMaxLength(256);
+            user.Property(u => u.UserName).HasMaxLength(25);
+            user.Property(u => u.NormalizedUserName).HasMaxLength(25);
             user.Property(u => u.Email).HasMaxLength(256);
             user.Property(u => u.NormalizedEmail).HasMaxLength(256);
-            user.Property(u => u.RefreshToken).HasMaxLength(256);
+            user.Property(u => u.RefreshToken).HasMaxLength(64);
             user.HasMany<IdentityUserRole<int>>().WithOne().HasForeignKey(ur => ur.UserId).IsRequired();
 
             var role = modelBuilder.Entity<IdentityRole<int>>()

@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
+using IdentityServer.Core.Users;
 using YesterdayApi.Core.Email;
 using YesterdayApi.Core.Users.Posts.Comments;
 using YesterdayApi.Core.Users.Posts.Reactions;
 using YesterdayApi.Core.Users.Profiles;
-using YesterdayApi.UserIdentity.Data.Core.Users;
 
 namespace YesterdayApi.Core.Users
 {
-  public class User : AspIdentityUser , IEmailReceiver
+  public class User : UserIdentity, IEmailReceiver
   {
     public DateTime BirthDate { get; set; }
 

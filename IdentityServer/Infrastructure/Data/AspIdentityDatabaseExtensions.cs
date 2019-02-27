@@ -2,22 +2,21 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using YesterdayApi.UserIdentity.Data.Core.Users;
 
-namespace YesterdayApi.UserIdentity.Data.Infrastructure.Database
+namespace IdentityServer.Infrastructure.Data
 {
     public static class AspIdentityDatabaseExtensions
     {
         public static void AddAspIdentityDatabase(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<UserDbContext>(opt =>
+            services.AddDbContext<UserIdentityDbContext>(opt =>
                 opt.UseSqlServer(configuration.GetConnectionString("yesterday")));
 
-            services.AddIdentityCore<Core.Users.UserIdentity>(options => { });
+            services.AddIdentityCore<Core.Users.UserIdentity>();
             new IdentityBuilder(typeof(Core.Users.UserIdentity), typeof(IdentityRole<int>), services)
                 .AddRoleManager<RoleManager<IdentityRole<int>>>()
                 .AddSignInManager<SignInManager<Core.Users.UserIdentity>>()
-                .AddEntityFrameworkStores<UserDbContext>();
+                .AddEntityFrameworkStores<UserIdentityDbContext>();
 
             services.Configure<IdentityOptions>(options =>
             {

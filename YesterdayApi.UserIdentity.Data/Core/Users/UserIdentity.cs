@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace YesterdayApi.UserIdentity.Data.Core.Users
 {
-    public class AspIdentityUser : IdentityUser<int>
+    public class UserIdentity : IdentityUser<int>
     {
         public string RefreshToken { get; private set; }
 
@@ -11,7 +11,7 @@ namespace YesterdayApi.UserIdentity.Data.Core.Users
             RefreshToken = refreshToken;
         }
 
-        public void Update(AspIdentityUser user)
+        public void Update(UserIdentity user)
         {
             UserName = user.UserName;
             Email = user.Email;

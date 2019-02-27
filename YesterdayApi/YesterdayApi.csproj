@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\IdentityServer\IdentityServer.csproj" />
     <ProjectReference Include="..\YesterdayApi.EmailViews\YesterdayApi.EmailViews.csproj" />
-    <ProjectReference Include="..\YesterdayApi.UserIdentity.Data\YesterdayApi.UserIdentity.Data.csproj" />
   </ItemGroup>
 </Project>

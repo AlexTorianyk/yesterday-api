@@ -1,0 +1,10 @@
+{
+  "ConnectionStrings": {
+      "yesterday": "Server=localhost, 1433; Database=yesterday; MultipleActiveResultSets=true; User Id=sa; Password=zaq1@WSX;"
+  },
+  "IdentityConfig": {
+      "ClientId": "resourceOwner",
+      "ClientSecret": "1YAueOC",
+      "Scope": "goalCalendarApi offline_access"
+  }
+}
