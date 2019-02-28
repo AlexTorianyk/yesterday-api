@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace RazorHtmlEmails.RazorClassLib.Views
+namespace YesterdayApi.EmailViews.Views
 {
     public class RegistrationConfirmation : PageModel
     {

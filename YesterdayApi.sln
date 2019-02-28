@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{BC7023
 		Common\commonsettings.json = Common\commonsettings.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YesterdayApi.EmailViews", "YesterdayApi.EmailViews\YesterdayApi.EmailViews.csproj", "{1B0F39D1-0BDA-40E1-BB3B-929D98D2C85E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YesterdayApi.EmailViews", "YesterdayApi.EmailViews\YesterdayApi.EmailViews.csproj", "{1B0F39D1-0BDA-40E1-BB3B-929D98D2C85E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +34,10 @@ Global
 		{BA0F2E02-8474-49B6-9D91-28BE74F6F0E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA0F2E02-8474-49B6-9D91-28BE74F6F0E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA0F2E02-8474-49B6-9D91-28BE74F6F0E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B0F39D1-0BDA-40E1-BB3B-929D98D2C85E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B0F39D1-0BDA-40E1-BB3B-929D98D2C85E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B0F39D1-0BDA-40E1-BB3B-929D98D2C85E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B0F39D1-0BDA-40E1-BB3B-929D98D2C85E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
