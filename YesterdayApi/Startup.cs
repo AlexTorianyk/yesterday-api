@@ -25,6 +25,15 @@ namespace YesterdayApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddAuthentication("Bearer")
+                .AddIdentityServerAuthentication(options =>
+                {
+                    options.Authority = "http://localhost:5000";
+                    options.RequireHttpsMetadata = false;
+
+                    options.ApiName = "yesterdayApi";
+                });
             services.AddMapper();
             services.AddSwagger();
             services.AddDbContext(Configuration);
