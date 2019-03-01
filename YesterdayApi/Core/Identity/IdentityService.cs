@@ -7,6 +7,7 @@ using IdentityServer.Core.Users;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using YesterdayApi.Core.Identity.Web;
+using YesterdayApi.Core.Users.Web;
 using YesterdayApi.Utilities.Exceptions;
 
 namespace YesterdayApi.Core.Identity
@@ -58,6 +59,21 @@ namespace YesterdayApi.Core.Identity
             }
 
             return disco;
+        }
+
+        private async Task<TokenResponse> RequestPasswordToken(string tokenEndpoint, UserIdentityRequest userRequest)
+        {
+            var tokenResponse = await _client.RequestPasswordTokenAsync(new PasswordTokenRequest()
+            {
+                Address = tokenEndpoint,
+                ClientId = _configuration.GetSection("IdentityConfig:ClientId").Value,
+                ClientSecret = _configuration.GetSection("IdentityConfig:ClientSecret").Value,
+                Scope = _configuration.GetSection("IdentityConfig:Scope").Value,
+                UserName = userRequest.UserName,
+                Password = userRequest.Password,
+            });
+
+            return tokenResponse;
         }
     }
 }
