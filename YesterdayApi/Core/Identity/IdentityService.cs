@@ -7,6 +7,7 @@ using IdentityServer.Core.Users;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using YesterdayApi.Core.Identity.Web;
+using YesterdayApi.Core.Users;
 using YesterdayApi.Core.Users.Web;
 using YesterdayApi.Utilities.Exceptions;
 
@@ -45,14 +46,30 @@ namespace YesterdayApi.Core.Identity
             return tokenResponse.AccessToken;
         }
 
-        public Task<string> RefreshAccessToken(string authHeader)
+        public async Task<string> RefreshAccessToken(string authHeader)
         {
-            throw new NotImplementedException();
+            var disco = await GetDiscoveryDocument();
+
+            var id = _tokenDecoder.GetUserId(authHeader);
+
+            var user = await _userIdentityService.GetById(id);
+
+            var tokenResponse = await RequestRefreshToken(disco.TokenEndpoint, user.RefreshToken);
+
+            if (tokenResponse.IsError)
+            {
+                throw new BadRequestException("Error", tokenResponse.Error);
+            }
+
+            return tokenResponse.AccessToken;
         }
 
-        public Task<IdentityResult> RegisterUser(UserRegistrationRequest userRegistrationRequest)
+        public async Task<IdentityResult> RegisterUser(UserRegistrationRequest userRegistrationRequest)
         {
-            throw new NotImplementedException();
+            var newUser = _mapper.Map<User>(userRegistrationRequest);
+            var result = await _userIdentityService.CreateAsync(newUser, userRegistrationRequest.Password);
+
+            return result;
         }
 
         public Task SetAdmin(string userName)
@@ -81,6 +98,20 @@ namespace YesterdayApi.Core.Identity
                 Scope = _configuration.GetSection("IdentityConfig:Scope").Value,
                 UserName = userRequest.UserName,
                 Password = userRequest.Password,
+            });
+
+            return tokenResponse;
+        }
+
+        private async Task<TokenResponse> RequestRefreshToken(string tokenEndpoint, string refreshToken)
+        {
+            var tokenResponse = await _client.RequestRefreshTokenAsync(new RefreshTokenRequest()
+            {
+                Address = tokenEndpoint,
+                ClientId = _configuration.GetSection("IdentityConfig:ClientId").Value,
+                ClientSecret = _configuration.GetSection("IdentityConfig:ClientSecret").Value,
+                Scope = _configuration.GetSection("IdentityConfig:Scope").Value,
+                RefreshToken = refreshToken
             });
 
             return tokenResponse;
