@@ -7,6 +7,7 @@ using YesterdayApi.Infrastructure.Data;
 using YesterdayApi.Utilities.AutomaticDI;
 using YesterdayApi.Utilities.Exceptions;
 using YesterdayApi.Utilities.Mapper;
+using YesterdayApi.Utilities.Policies;
 using YesterdayApi.Utilities.Swagger;
 using YesterdayApi.Web.Cors;
 
@@ -37,6 +38,7 @@ namespace YesterdayApi
             services.AddMapper();
             services.AddSwagger();
             services.AddDbContext(Configuration);
+            services.AddAdminPolicy();
             services.AddCorsPolicy();
 
             services.ConfigureDependencies();

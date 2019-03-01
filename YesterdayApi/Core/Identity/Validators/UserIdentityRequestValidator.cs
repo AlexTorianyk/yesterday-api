@@ -1,6 +1,5 @@
 using FluentValidation;
 using YesterdayApi.Core.Identity.Web;
-using YesterdayApi.Core.Users.Web;
 using YesterdayApi.Utilities.AutomaticDI;
 
 namespace YesterdayApi.Core.Identity.Validators
