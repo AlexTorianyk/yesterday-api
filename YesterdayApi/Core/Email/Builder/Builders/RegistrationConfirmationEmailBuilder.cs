@@ -8,7 +8,6 @@ namespace YesterdayApi.Core.Email.Builder.Builders
 {
     public class RegistrationConfirmationEmailBuilder : EmailBuilderBase
     {
-        private string _subject;
         private PageModel _emailTemplate;
         private MimeMessage _email;
         private IEmailReceiver _emailReceiver;

@@ -9,7 +9,6 @@ namespace YesterdayApi.Utilities.Exceptions
     {
         public UnauthorizedException(string message, string description)
             : base(message, description, (int)HttpStatusCode.Unauthorized)
-
         {
         }
 

@@ -116,7 +116,7 @@ namespace YesterdayApi.Core.Identity
                 ClientId = _configuration.GetSection("IdentityConfig:ClientId").Value,
                 ClientSecret = _configuration.GetSection("IdentityConfig:ClientSecret").Value,
                 Scope = _configuration.GetSection("IdentityConfig:Scope").Value,
-                RefreshToken = refreshToken
+                RefreshToken = refreshToken,
             });
 
             return tokenResponse;

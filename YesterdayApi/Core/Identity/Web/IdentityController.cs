@@ -60,7 +60,7 @@ namespace YesterdayApi.Core.Identity.Web
             {
                 foreach (var error in result.Errors)
                 {
-                    ModelState.AddModelError("", error.Description);
+                    ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
 

@@ -79,7 +79,7 @@ namespace YesterdayApi.Core.Email.Builder.Renderer
             var searchedLocations = getViewResult.SearchedLocations.Concat(findViewResult.SearchedLocations);
             var errorMessage = string.Join(
                 Environment.NewLine,
-                new[] {$"Unable to find view '{viewName}'. The following locations were searched:"}.Concat(
+                new[] { $"Unable to find view '{viewName}'. The following locations were searched:" }.Concat(
                     searchedLocations));
 
             throw new InvalidOperationException(errorMessage);
@@ -87,7 +87,7 @@ namespace YesterdayApi.Core.Email.Builder.Renderer
 
         private ActionContext GetActionContext()
         {
-            var httpContext = new DefaultHttpContext {RequestServices = _serviceProvider};
+            var httpContext = new DefaultHttpContext { RequestServices = _serviceProvider };
             return new ActionContext(httpContext, new RouteData(), new ActionDescriptor());
         }
     }

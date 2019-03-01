@@ -9,7 +9,6 @@ namespace YesterdayApi.Utilities.Exceptions
     {
         public BadRequestException(string message, string description)
             : base(message, description, (int)HttpStatusCode.BadRequest)
-
         {
         }
 
