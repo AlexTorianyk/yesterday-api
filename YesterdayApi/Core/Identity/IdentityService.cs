@@ -30,9 +30,19 @@ namespace YesterdayApi.Core.Identity
             _client = new HttpClient();
         }
 
-        public Task<string> GetAccessToken(UserIdentityRequest userIdentityRequest)
+        public async Task<string> GetAccessToken(UserIdentityRequest userIdentityRequest)
         {
-            throw new NotImplementedException();
+            var disco = await GetDiscoveryDocument();
+
+            var tokenResponse = await RequestPasswordToken(disco.TokenEndpoint, userIdentityRequest);
+
+            if (tokenResponse.IsError)
+            {
+                throw new BadRequestException("Error", tokenResponse.Error);
+            }
+
+            await _userIdentityService.UpdateUserRefreshToken(userIdentityRequest.UserName, tokenResponse.RefreshToken);
+            return tokenResponse.AccessToken;
         }
 
         public Task<string> RefreshAccessToken(string authHeader)
