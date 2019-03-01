@@ -1,4 +1,3 @@
-using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -8,7 +7,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using YesterdayApi.Core.Identity.Web;
 using YesterdayApi.Core.Users;
-using YesterdayApi.Core.Users.Web;
 using YesterdayApi.Utilities.Exceptions;
 
 namespace YesterdayApi.Core.Identity
