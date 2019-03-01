@@ -72,9 +72,16 @@ namespace YesterdayApi.Core.Identity
             return result;
         }
 
-        public Task SetAdmin(string userName)
+        public async Task SetAdmin(string userName)
         {
-            throw new NotImplementedException();
+            var user = await _userIdentityService.FindByNameAsync(userName);
+
+            if (await _userIdentityService.IsInRoleAsync(user, "Admin"))
+            {
+                throw new BadRequestException("Error", "User is already in role.");
+            }
+
+            await _userIdentityService.AddToRoleAsync(user, "Admin").ConfigureAwait(false);
         }
 
         private async Task<DiscoveryResponse> GetDiscoveryDocument()
