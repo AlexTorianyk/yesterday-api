@@ -7,6 +7,7 @@ using YesterdayApi.Infrastructure.Data;
 using YesterdayApi.Utilities.AutomaticDI;
 using YesterdayApi.Utilities.Exceptions;
 using YesterdayApi.Utilities.Mapper;
+using YesterdayApi.Utilities.Policies;
 using YesterdayApi.Utilities.Swagger;
 using YesterdayApi.Web.Cors;
 
@@ -25,9 +26,19 @@ namespace YesterdayApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddAuthentication("Bearer")
+                .AddIdentityServerAuthentication(options =>
+                {
+                    options.Authority = Configuration.GetSection("ApplicationUrl").Value;
+                    options.RequireHttpsMetadata = false;
+
+                    options.ApiName = "yesterdayApi";
+                });
             services.AddMapper();
             services.AddSwagger();
             services.AddDbContext(Configuration);
+            services.AddAdminPolicy();
             services.AddCorsPolicy();
 
             services.ConfigureDependencies();

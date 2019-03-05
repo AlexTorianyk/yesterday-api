@@ -7,8 +7,8 @@ namespace YesterdayApi.Core.Email.Builder
 {
     public class EmailDirector : IEmailDirector
     {
-        private EmailBuilderBase _emailBuilder;
         private readonly IRazorViewToStringRenderer _razorViewToStringRenderer;
+        private EmailBuilderBase _emailBuilder;
 
         public EmailDirector(IRazorViewToStringRenderer razorViewToStringRenderer)
         {

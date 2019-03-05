@@ -14,7 +14,7 @@ namespace YesterdayApi.Core.Email
             _emailDirector = emailDirector;
         }
 
-        public async void SendEmail(IEmailReceiver details, Type type)
+        public async Task SendEmail(IEmailReceiver details, Type type)
         {
             var email = _emailDirector.PrepareEmail(details, type);
             using (var client = new SmtpClient())

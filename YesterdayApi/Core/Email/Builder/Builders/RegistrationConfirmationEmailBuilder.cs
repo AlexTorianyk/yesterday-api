@@ -1,13 +1,13 @@
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MimeKit;
-using RazorHtmlEmails.RazorClassLib.Views;
 using YesterdayApi.Core.Email.Builder.Renderer;
+using YesterdayApi.EmailViews.Views;
 
 namespace YesterdayApi.Core.Email.Builder.Builders
 {
     public class RegistrationConfirmationEmailBuilder : EmailBuilderBase
     {
-        private string _subject;
         private PageModel _emailTemplate;
         private MimeMessage _email;
         private IEmailReceiver _emailReceiver;
@@ -33,7 +33,7 @@ namespace YesterdayApi.Core.Email.Builder.Builders
             _email.Subject = "Confirm your registration on Yesterday";
         }
 
-        public override async void PrepareBody()
+        public override async Task PrepareBody()
         {
             _emailTemplate = new RegistrationConfirmation(_emailReceiver.UserName);
             _email.Body =
