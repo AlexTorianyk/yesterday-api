@@ -30,7 +30,7 @@ namespace YesterdayApi
             services.AddAuthentication("Bearer")
                 .AddIdentityServerAuthentication(options =>
                 {
-                    options.Authority = "http://localhost:5000";
+                    options.Authority = Configuration.GetSection("ApplicationUrl").Value;
                     options.RequireHttpsMetadata = false;
 
                     options.ApiName = "yesterdayApi";
