@@ -86,6 +86,7 @@ namespace YesterdayApi.Core.Identity
         private async Task<DiscoveryResponse> GetDiscoveryDocument()
         {
             var disco = await _client.GetDiscoveryDocumentAsync(_discoveryUrl);
+
             if (disco.IsError)
             {
                 throw new InternalServerErrorException("Error", "Encountered problems in the process of getting the discovery document.");
