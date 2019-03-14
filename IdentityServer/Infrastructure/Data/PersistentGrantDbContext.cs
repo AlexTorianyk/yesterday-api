@@ -15,7 +15,7 @@ namespace IdentityServer.Infrastructure.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             var persistedGrant = modelBuilder.Entity<PersistedGrant>();
-            persistedGrant.HasKey(pg => pg.Key);
+            persistedGrant.HasKey(pg => pg.SubjectId);
         }
     }
 }
