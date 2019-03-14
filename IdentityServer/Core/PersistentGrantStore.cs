@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using IdentityServer.Infrastructure.Data;
+using IdentityServer.Utilities.Extensions;
 using IdentityServer4.Models;
 using IdentityServer4.Stores;
 using Microsoft.EntityFrameworkCore;
@@ -51,10 +52,9 @@ namespace IdentityServer.Core
         }
         public async Task StoreAsync(PersistedGrant grant)
         {
-            if (await GrantExists(grant.Key))
+            if (await GrantExists(grant.SubjectId))
             {
-                _context.PersistedGrants.Update(grant);
-                await _context.SaveChangesAsync();
+                await UpdateRefreshToken(grant);
             }
             else
             {
@@ -63,9 +63,17 @@ namespace IdentityServer.Core
             }
         }
 
-        private Task<bool> GrantExists(string key)
+        private async Task UpdateRefreshToken(PersistedGrant refreshToken)
         {
-            return _context.PersistedGrants.AnyAsync(g => g.Key == key);
+            var oldRefreshToken = await _context.PersistedGrants.FirstAsync(rt => rt.SubjectId == refreshToken.SubjectId);
+            oldRefreshToken.UpdateRefreshToken(refreshToken);
+            _context.PersistedGrants.Update(oldRefreshToken);
+            await _context.SaveChangesAsync().ConfigureAwait(false);
+        }
+
+        private Task<bool> GrantExists(string subjectId)
+        {
+            return _context.PersistedGrants.AnyAsync(g => g.SubjectId == subjectId);
         }
     }
 }
